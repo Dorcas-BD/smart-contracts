@@ -13,24 +13,24 @@ The second mapping is a nested mapping whhich maps EIN from the Resolver address
 
 **Line 31-34:** The constructor is accepting the identityRegistryAddress and the hydroTokenAddress as a parameters 
 
-## ```identityExists```  and ```ensureSignatureTimeValid``` modifiers
+### ```identityExists```  and ```ensureSignatureTimeValid``` modifiers
 These are the two modifiers in this contract. ```identityExists``` ensures that a particular EIN exist. ``` require(identityRegistry.identityExists(ein) == check, "The EIN does not exist."); ```. It require to check the EIN input parameters in the **identityRegistry**(__identity registry is the place where all the identies are labeled by EIN__) if it exists. The other modifier ```ensureSignatureTimeValid``` is to verify if the timestamp is valid.
 
-## ```setAddresses```
+### ```setAddresses```
 The first function of this contract is the function which accept the _identityRegistryAddress and the _hydroTokenAddress as parameters and assigned it to the IdentityRegistryInterface and the HydroInterface.
 
-## ```setClientRaindropAddress```
+### ```setClientRaindropAddress```
 The second function can be called by only the owner of the contract. It accept ```_clientRaindropAddress``` as parameter and set it as ```ClientRaindropInterface``` address.
 
 
-## ```createIdentityDelegated```
+### ```createIdentityDelegated```
 The function is called by the provider and it requires signature to confirm the associatedAddress. This function also add new EIN to the identityRegistry. The ```_addResolver``` add an array of Resolver to the EIN and it must be called by a Provider.
 
 
-## ```addProvidersFor```
+### ```addProvidersFor```
 The function adds the arrays of Provider reference by the approvingAddress. This function requires the timestamp ```approvingAddress``` signed it before it's added to the ```identityRegistry```.
 
-## ```removeProviderFor```
+### ```removeProviderFor```
 The funtion from **line 114-136**. This function is the same with the ```addProviderFor``` function. Just that it remove he Provider.
 
-## ```upgradeProvidersFor```
+### ```upgradeProvidersFor```
