@@ -1,4 +1,4 @@
-# Snowflakes Contract Review
+# Snowflakes.sol Contract Review
 Code Review
  The snowflakes contract aim is an identity management protocol
 
@@ -28,7 +28,7 @@ The function is called by the provider and it requires signature to confirm the 
 
 
 ### ```addProvidersFor```
-The function adds the arrays of Provider reference by the approvingAddress. This function requires the timestamp ```approvingAddress``` signed it before it's added to the ```identityRegistry```.
+The function adds the arrays of Provider reference by the approvingAddress. This function requires the timestamp ```approvingAddress``` signed it before it's added to the ```identityRegistry```. The ```getEIN``` verify the EIN is associated with the input address(that is the **approvingAddress**)
 
 ### ```removeProviderFor```
 The funtion from **line 114-136**. This function is the same with the ```addProviderFor``` function. Just that it remove he Provider.
