@@ -56,18 +56,33 @@ This is a private function that ensure that the signature time is valid by calli
 
 
 ### ```_addResolver``` function
-This function is the logic use to add new resolvers. This is a proivate function that take the EIN, resolver address as a parameters and also check if the EIN and resolver address does not exist in the identityRegistry before adding the resolver. Also, the function check if it has Snowflakes to allow withdrawal.
-
+This function is the logic use to add new resolvers. This is a proivate function that take the EIN, resolver address as a parameters and also check if the EIN and resolver address does not exist in the identityRegistry before adding the resolver. Also, the function check if it has Snowflakes to allow withdrawal, and also set the withdraw allowance limit. And the resolver are added to the array.
 
 ### ```changeResolverAllowances``` function
 It change resolver allowances for identity of msg.sender.
 
 
 ### ```changeResolverAllowancesDelegated``` function
+This function change the allowance that was delegated to the resolver before. The function check if the EIN of the approving address is in the identityRegistry and is signed then authorize the transaction if not, it denies it. 
+
+
+
 ### ```changeResolverAllowances``` function
+This function change the resolver allowance. It uses for loop to check if the resolver Ein is in the identityRegistry and thenpass the updated allowance to the resolver Ein and call the ```SnowflakeResolverAllowanceChanged``` to change it.
+
+
 ### ```removeResolver``` function
+The ```removeResolver``` function remove a resolver for identity of the msg.sender.
+
+
 ### ```removeResolverFor``` function
+This function have the same logic with the ```removeProvider``` function. but it is call by the Provider and it validate that the timestamp is correct. Then call the ```removerFunction``` to remove the resolver.
+
+
 ### ```validateRemoveResolverForSignature``` function
+This is a private function that is called by the Provider to make sure the he authorised the removing the resolver to the identity. **But the function failed to call the *ensureSignatureTimeValid* modifier to verify the timestamp.**
+
+
 ### ```removeResolver``` function
 ### ```triggerRecoveryAddressChangeFor``` function
 ### ```receiveApproval``` function
