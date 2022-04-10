@@ -307,7 +307,7 @@ contract Snowflake is Ownable {
     }
 
     // common logic to remove resolvers
-    function removeResolver(uint ein, address resolver, bool isSnowflake, bytes memory extraData) private {
+    function _removeResolver(uint ein, address resolver, bool isSnowflake, bytes memory extraData) private {
         require(identityRegistry.isResolverFor(ein, resolver), "Identity has not yet set this resolver.");
     
         delete resolverAllowances[ein][resolver];
