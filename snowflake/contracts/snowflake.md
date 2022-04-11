@@ -56,7 +56,7 @@ This is a private function that ensure that the signature time is valid by calli
 
 
 ### ```_addResolver``` function
-This function is the logic use to add new resolvers. This is a proivate function that take the EIN, resolver address as a parameters and also check if the EIN and resolver address does not exist in the identityRegistry before adding the resolver. Also, the function check if it has Snowflakes to allow withdrawal, and also set the withdraw allowance limit. And the resolver are added to the array.
+This function is the logic use to add new resolvers. This is a private function that take the EIN, resolver address as a parameters and also check if the EIN and resolver address does not exist in the identityRegistry before adding the resolver. Also, the function check if it has Snowflakes to allow withdrawal, and also set the withdraw allowance limit. And the resolver are added to the array.
 
 ### ```changeResolverAllowances``` function
 It change resolver allowances for identity of msg.sender.
@@ -84,18 +84,47 @@ This is a private function that is called by the Provider to make sure the he au
 
 
 ### ```removeResolver``` function
+This function should be ```_removeResolver``` not ```removeResolver```.
+This function is the logic use to remove new resolvers. This is a private function that take the EIN, resolver address as a parameters and also check if the EIN and resolver address does not exist in the identityRegistry before adding the resolver and the resolver are remove to the array.
+
+
 ### ```triggerRecoveryAddressChangeFor``` function
+This function triggers EIN recovery from the current recovery account and then change the recovery address
+
+
 ### ```receiveApproval``` function
+This function allow contract to receive HYDRO tokens. It requires the msg.sender to be the HYDRO token smart contract and depositing it to an EIN. If the length of _bytes is <=32 then user can transer the token but if <32 thenyou have to deposit some token by calling the ```SnowflakesDeposit``` event. If its >32 then the ```SnowflakesInterface``` interface can be use to call both the transfer and the withdrawal event, ```SnowflakeTransferToVia``` event and ```SnowflakeWithdrawToVia``` event respectively.
+
+
 ### ```transferSnowflakeBalance``` function
+This function is to transfer snowflake balance from one snowflake holder to another
+
+
 ### ```withdrawSnowflakeBalance``` function
+This function is to withdraw Snowflake balance to an external address.
+
+
 ### ```transferSnowflakeBalanceFrom``` function
+This functions allows resolvers to transfer allowance amounts to other snowflakes.
+
+
 ### ```withdrawSnowflakeBalanceFrom``` function
+This function allows resolvers to withdraw allowance amounts to other snowflakes.
+
+
 ### ```transferSnowflakeBalanceFromVia``` function
+This function allows resolvers to send withdrawal amounts to arbitrary smart contracts 'to' identities.
+
+
 ### ```withdrawSnowflakeBalanceFromVia``` function
+This function allows resolvers to send withdrawal amounts 'to' addresses via arbitrary smart contract
+
+
 ### ``` _transfer``` function
 ### ```_withdraw``` function
 ### ```handleAllowance``` function
 ### ```allowAndCall``` function
+Ths function allowAndCall from msg.sender
 ### ```allowAndCallDelegated``` function
 ### ```validateAllowAndCallDelegatedSignature``` function
 ### ```allowAndCall``` function
